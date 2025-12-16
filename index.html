@@ -3,13 +3,372 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>FINGROW — Smarter money movement</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <meta name="theme-color" content="#0b0f1a" />
+  <title>FINGROW — AI-powered personal finance tracking</title>
+  <meta name="description" content="FINGROW is an AI-powered personal finance app for spending tracking, portfolio tracking, and net worth tracking. Coming soon on iOS & Android." />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="FINGROW — AI-powered personal finance tracking" />
+  <meta property="og:description" content="Track spending, investments, and net worth in one place. AI-assisted categorization and insights. Coming soon on iOS & Android." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://fingrow.app" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <h1>FINGROW</h1>
-  <p>Fintech landing page deployed on Cloudflare Pages.</p>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <a class="brand" href="#">
+        <span class="brand-mark" aria-hidden="true">◉</span>
+        <span class="brand-name">FINGROW</span>
+      </a>
+
+      <nav class="nav" aria-label="Primary">
+        <a href="#features">Features</a>
+        <a href="#ai">AI</a>
+        <a href="#security">Security</a>
+        <a href="#download">Download</a>
+      </nav>
+
+      <div class="topbar-cta">
+        <button class="btn btn-ghost" data-open-waitlist>Join waitlist</button>
+        <a class="btn btn-primary" href="#download">Get notified</a>
+      </div>
+
+      <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+
+    <div class="mobile-nav" id="mobileNav" hidden>
+      <a href="#features">Features</a>
+      <a href="#ai">AI</a>
+      <a href="#security">Security</a>
+      <a href="#download">Download</a>
+      <button class="btn btn-ghost full" data-open-waitlist>Join waitlist</button>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- HERO -->
+    <section class="hero">
+      <div class="container hero-inner">
+        <div class="hero-left">
+          <div class="pill">
+            <span class="dot"></span>
+            AI-powered personal finance tracking
+          </div>
+
+          <h1>
+            FINGROW for all your money —
+            <span class="gradient-text">spend</span>, <span class="gradient-text">invest</span>, <span class="gradient-text">grow</span>.
+          </h1>
+
+          <p class="subhead">
+            Track spending, investment portfolio, and net worth in one calm dashboard.
+            FINGROW uses AI to improve categorization and surface insights — always transparent, always in your control.
+          </p>
+
+          <div class="hero-actions">
+            <button class="btn btn-primary" data-open-waitlist>Join waitlist</button>
+            <a class="btn btn-ghost" href="#features">See what it does</a>
+          </div>
+
+          <div class="store-row" aria-label="App availability">
+            <div class="store-badge disabled" role="img" aria-label="Coming soon on the App Store">
+              <div class="store-top"> App Store</div>
+              <div class="store-sub">Coming soon</div>
+            </div>
+            <div class="store-badge disabled" role="img" aria-label="Coming soon on Google Play">
+              <div class="store-top">▶ Google Play</div>
+              <div class="store-sub">Coming soon</div>
+            </div>
+          </div>
+
+          <div class="trust-row" aria-label="Trust highlights">
+            <div class="trust-pill">Privacy-first</div>
+            <div class="trust-pill">No ads</div>
+            <div class="trust-pill">AI-assisted insights</div>
+          </div>
+        </div>
+
+        <div class="hero-right">
+          <div class="visual-wrap">
+            <div class="hero-visual glass">
+              <div class="visual-head">
+                <div class="chip">Live preview</div>
+                <div class="status"><span class="pulse"></span> AI insights</div>
+              </div>
+
+              <div class="kpis">
+                <div class="kpi">
+                  <div class="kpi-label">Net worth</div>
+                  <div class="kpi-value">$128,420</div>
+                  <div class="kpi-note">+4.2% this month</div>
+                </div>
+                <div class="kpi">
+                  <div class="kpi-label">Cashflow</div>
+                  <div class="kpi-value">$5,310</div>
+                  <div class="kpi-note">Avg. monthly</div>
+                </div>
+                <div class="kpi">
+                  <div class="kpi-label">Portfolio</div>
+                  <div class="kpi-value">$72,980</div>
+                  <div class="kpi-note">Diversified</div>
+                </div>
+              </div>
+
+              <div class="ai-card">
+                <div class="ai-title">AI highlight</div>
+                <div class="ai-text">
+                  “Dining” looks higher than usual this week.
+                  Consider setting a soft cap at <b>$180</b> to stay on track.
+                </div>
+                <div class="ai-actions">
+                  <button class="mini-btn" type="button">Set cap</button>
+                  <button class="mini-btn ghost" type="button">Ignore</button>
+                </div>
+              </div>
+
+              <div class="mini-grid">
+                <div class="mini">
+                  <div class="mini-h">Spending</div>
+                  <div class="bar"><div class="bar-fill" style="width:62%"></div></div>
+                  <div class="mini-sub">$2,140 / $3,450</div>
+                </div>
+                <div class="mini">
+                  <div class="mini-h">Investing</div>
+                  <div class="bar"><div class="bar-fill" style="width:78%"></div></div>
+                  <div class="mini-sub">$1,980 / $2,540</div>
+                </div>
+                <div class="mini">
+                  <div class="mini-h">Savings</div>
+                  <div class="bar"><div class="bar-fill" style="width:55%"></div></div>
+                  <div class="mini-sub">$1,190 / $2,160</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="halo" aria-hidden="true"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="features">
+      <div class="container">
+        <div class="section-head">
+          <h2>Everything in one place</h2>
+          <p class="muted">Simple words, clear benefits, strong confidence — with an AI-first edge.</p>
+        </div>
+
+        <div class="grid3">
+          <article class="feature glass">
+            <div class="feature-icon">💳</div>
+            <h3>Spending tracking</h3>
+            <p>Clean categories, clear trends, and helpful summaries — without manual spreadsheets.</p>
+          </article>
+
+          <article class="feature glass">
+            <div class="feature-icon">📈</div>
+            <h3>Investment portfolio</h3>
+            <p>Track your portfolio performance and allocation at a glance. Keep the big picture visible.</p>
+          </article>
+
+          <article class="feature glass">
+            <div class="feature-icon">🧾</div>
+            <h3>Net worth</h3>
+            <p>See progress over time with assets and liabilities in a single, understandable number.</p>
+          </article>
+        </div>
+
+        <div class="grid2">
+          <article class="feature glass">
+            <div class="feature-icon">🔔</div>
+            <h3>Smart alerts</h3>
+            <p>Get gentle nudges for unusual spikes, recurring bills, and approaching targets.</p>
+          </article>
+          <article class="feature glass">
+            <div class="feature-icon">🧠</div>
+            <h3>Insights that explain “why”</h3>
+            <p>FINGROW highlights drivers behind changes — not just charts. Less noise, more meaning.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="ai">
+      <div class="container split">
+        <div>
+          <h2>AI that helps, not guesses</h2>
+          <p class="muted">
+            FINGROW uses AI to enhance categorization, detect unusual spend, and surface insights.
+            Every suggestion is explainable, and you can always override it.
+          </p>
+
+          <ul class="checklist">
+            <li>Auto-categorize spending with explainable labels</li>
+            <li>Detect anomalies and subscription changes</li>
+            <li>Summaries like “what changed this month”</li>
+            <li>Your rules always win — AI adapts to you</li>
+          </ul>
+
+          <button class="btn btn-primary" data-open-waitlist>Join early access</button>
+          <p class="muted small note">
+            *AI features shown are illustrative. Final functionality will evolve during beta.
+          </p>
+        </div>
+
+        <div class="glass card pad">
+          <div class="chip">How insights are built</div>
+          <div class="steps">
+            <div class="step">
+              <div class="step-n">1</div>
+              <div class="step-t">
+                <div class="step-h">Organize</div>
+                <div class="muted small">Transactions are grouped into categories & patterns.</div>
+              </div>
+            </div>
+            <div class="step">
+              <div class="step-n">2</div>
+              <div class="step-t">
+                <div class="step-h">Explain</div>
+                <div class="muted small">Insights include “why” (not just a number).</div>
+              </div>
+            </div>
+            <div class="step">
+              <div class="step-n">3</div>
+              <div class="step-t">
+                <div class="step-h">Control</div>
+                <div class="muted small">You approve rules, caps, and automation.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="security">
+      <div class="container split">
+        <div class="glass card pad">
+          <div class="chip">Trust & safety</div>
+          <div class="security-grid">
+            <div class="sec">
+              <div class="sec-label">Data</div>
+              <div class="sec-value ok">Privacy-first</div>
+            </div>
+            <div class="sec">
+              <div class="sec-label">AI</div>
+              <div class="sec-value ok">Explainable</div>
+            </div>
+            <div class="sec">
+              <div class="sec-label">Access</div>
+              <div class="sec-value ok">User control</div>
+            </div>
+            <div class="sec">
+              <div class="sec-label">Web</div>
+              <div class="sec-value ok">HTTPS</div>
+            </div>
+          </div>
+          <p class="muted small">This site is hosted on Cloudflare Pages with free TLS and edge caching.</p>
+        </div>
+
+        <div>
+          <h2>Built to earn trust</h2>
+          <p class="muted">
+            Fintech needs clarity and confidence. FINGROW is designed to make your finances easier to understand
+            without overwhelming you — and without turning your data into ads.
+          </p>
+          <ul class="checklist">
+            <li>No advertising business model</li>
+            <li>Clear, human-readable insights</li>
+            <li>Designed for calm, not addiction</li>
+          </ul>
+          <a class="btn btn-ghost" href="#download">Download availability</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="download">
+      <div class="container">
+        <div class="cta glass">
+          <div>
+            <h2>Coming soon on iOS & Android</h2>
+            <p class="muted">Be the first to know when FINGROW launches. Early access spots are limited.</p>
+            <div class="store-row">
+              <div class="store-badge disabled">
+                <div class="store-top"> App Store</div>
+                <div class="store-sub">Coming soon</div>
+              </div>
+              <div class="store-badge disabled">
+                <div class="store-top">▶ Google Play</div>
+                <div class="store-sub">Coming soon</div>
+              </div>
+            </div>
+          </div>
+          <div class="cta-actions">
+            <button class="btn btn-primary full" data-open-waitlist>Join the waitlist</button>
+            <p class="muted small">We’ll email you once. No spam.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="container footer-inner">
+        <div class="footer-left">
+          <div class="brand small">
+            <span class="brand-mark" aria-hidden="true">◉</span>
+            <span class="brand-name">FINGROW</span>
+          </div>
+          <div class="muted small">© <span id="year"></span> FINGROW. All rights reserved.</div>
+        </div>
+        <div class="footer-right">
+          <a class="muted small" href="#">Privacy</a>
+          <a class="muted small" href="#">Terms</a>
+          <a class="muted small" href="mailto:hello@fingrow.app">hello@fingrow.app</a>
+        </div>
+      </div>
+    </footer>
+  </main>
+
+  <div class="modal" id="modal" aria-hidden="true">
+    <div class="modal-backdrop" id="modalBackdrop"></div>
+    <div class="modal-card glass" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <div class="modal-head">
+        <h3 id="modalTitle">Join the FINGROW waitlist</h3>
+        <button class="icon-btn" id="closeModal" aria-label="Close">✕</button>
+      </div>
+
+      <form id="waitlistForm" class="modal-form">
+        <label>
+          <span class="muted small">Email</span>
+          <input type="email" name="email" placeholder="you@example.com" required />
+        </label>
+
+        <label>
+          <span class="muted small">What do you want to track most?</span>
+          <input type="text" name="note" placeholder="spending, investing, net worth…" maxlength="80" />
+        </label>
+
+        <button class="btn btn-primary full" type="submit">Notify me</button>
+        <p class="muted small">
+          Demo mode: this stores entries locally in your browser. When you’re ready, we can connect it to a real backend (optional).
+        </p>
+      </form>
+
+      <div class="toast" id="toast" hidden>
+        <div class="toast-title">You’re on the list ✅</div>
+        <div class="toast-sub muted small">Saved locally for now.</div>
+      </div>
+    </div>
+  </div>
+
   <script src="app.js"></script>
 </body>
 </html>
