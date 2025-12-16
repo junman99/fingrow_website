@@ -11,6 +11,10 @@
   --grad2: #D4735E;
   --grad3: #E8B86D;
   --good: #88AB8E;
+  --accent-primary: #5B9A8B;
+  --accent-secondary: #D4735E;
+  --accent-warning: #E8B86D;
+  --accent-success: #88AB8E;
 }
 *{box-sizing:border-box}
 html,body{height:100%}
@@ -45,6 +49,7 @@ a{color:inherit; text-decoration:none}
   position:sticky; top:0; z-index:50;
   background: rgba(250,247,240,.82);
   border-bottom: 1px solid var(--border);
+  box-shadow: 0 8px 24px rgba(45,36,36,.06);
   backdrop-filter: blur(10px);
 }
 .topbar-inner{display:flex; align-items:center; justify-content:space-between; padding:16px 0; gap:16px}
@@ -97,6 +102,16 @@ h1{margin:14px 0 10px; font-size: clamp(38px, 4.3vw, 56px); line-height:1.02; le
 .subhead{margin:0 0 18px; color: rgba(45,36,36,.74); font-size:15.5px; line-height:1.55; max-width:560px}
 
 .hero-actions{display:flex; gap:12px; align-items:center; margin:16px 0 18px}
+.hero-actions + .quick-actions{margin-top:6px}
+
+.quick-actions{display:grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap:10px; align-items:stretch; margin:0 0 18px}
+.quick-action{display:flex; align-items:center; gap:10px; padding:10px 12px; border-radius:16px; background: rgba(255,251,245,.92); border:1px solid var(--border)}
+.quick-icon{width:32px; height:32px; display:grid; place-items:center; color: var(--accent-primary);}
+.quick-icon.shared{color: var(--accent-secondary);}
+.quick-icon.budgets{color: var(--accent-warning);}
+.quick-icon.insights{color: var(--accent-primary);}
+.quick-icon.history{color: var(--accent-success);}
+.quick-label{font-weight:800; color: var(--ink); font-size:13px}
 
 .store-row{display:flex; gap:10px; flex-wrap:wrap; margin-top:6px}
 .store-badge{min-width:178px; padding:10px 12px; border-radius:16px; background: rgba(255,255,255,.82); border:1px solid rgba(0,0,0,.08)}
@@ -131,22 +146,27 @@ h1{margin:14px 0 10px; font-size: clamp(38px, 4.3vw, 56px); line-height:1.02; le
 .mini-grid{margin-top:12px; display:grid; grid-template-columns: 1fr; gap:10px}
 .mini{padding:12px; border-radius:18px; background: rgba(255,251,245,.90); border:1px solid var(--border)}
 .mini-h{font-weight:900; font-size:12.5px; color: rgba(45,36,36,.78)}
-.bar{height:10px; border-radius:999px; background: rgba(0,0,0,.06); overflow:hidden; margin-top:8px}
-.bar-fill{height:100%; background: linear-gradient(90deg, var(--grad1), var(--grad2), var(--grad3)); border-radius:999px}
+.bar{height:10px; border-radius:999px; background: rgba(0,0,0,.06); overflow:hidden; margin-top:8px; position:relative}
+.bar-fill{height:100%; background: linear-gradient(90deg, var(--grad1), var(--grad2), var(--grad3)); border-radius:999px; width:0}
+.bar.big{height:14px}
 .mini-sub{margin-top:8px; color: rgba(11,15,26,.66); font-weight:800; font-size:12px}
 
 .halo{position:absolute; inset:-60px; background: radial-gradient(260px 160px at 20% 15%, rgba(46,233,166,.25), transparent 60%), radial-gradient(260px 160px at 80% 35%, rgba(124,92,255,.20), transparent 60%), radial-gradient(280px 180px at 55% 90%, rgba(76,195,255,.18), transparent 60%); filter: blur(18px); pointer-events:none; z-index:-1}
 
 .section{padding:56px 0}
+.section.alt{background: rgba(255,251,245,.76)}
 .section-head{margin-bottom:18px}
 .section h2{margin:0 0 8px; font-size:28px; letter-spacing:-.7px}
 
 .grid3{display:grid; grid-template-columns: repeat(3, 1fr); gap:14px}
 .grid2{display:grid; grid-template-columns: repeat(2, 1fr); gap:14px; margin-top:14px}
 .feature{padding:18px}
-.feature-icon{font-size:20px; width:38px; height:38px; display:grid; place-items:center; border-radius:14px; background: rgba(91,154,139,.12); border:1px solid var(--border); color: var(--ink)}
+.feature-icon{width:38px; height:38px; display:grid; place-items:center; color: var(--accent-primary);}
+.feature-icon svg{width:100%; height:100%; stroke: currentColor; fill:none; stroke-width:2; stroke-linecap:round; stroke-linejoin:round}
 .feature h3{margin:12px 0 8px; font-size:16px}
 .feature p{margin:0; color: rgba(45,36,36,.70); font-size:13.5px; line-height:1.5; font-weight:650}
+.feature.tight{gap:6px}
+.feature.tight p{margin-top:4px}
 
 .split{display:grid; grid-template-columns: 1.1fr .9fr; gap:18px; align-items:center}
 .checklist{margin:16px 0 18px; padding-left:18px; color: rgba(11,15,26,.72); font-weight:750}
@@ -164,6 +184,36 @@ h1{margin:14px 0 10px; font-size: clamp(38px, 4.3vw, 56px); line-height:1.02; le
 .sec-label{color: rgba(45,36,36,.62); font-weight:900; font-size:12px}
 .sec-value{font-weight:900; font-size:16px; margin-top:6px}
 .sec-value.ok{color: var(--good)}
+
+.card.pad{background: var(--surface1); border:1px solid var(--border); border-radius:18px}
+.spend-card p{margin:0}
+.spend-head{display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom:10px}
+.spend-insight{margin-top:12px; padding:12px; border-radius:14px; background: rgba(91,154,139,.10); border:1px solid rgba(91,154,139,.18)}
+.invest-card{position:relative; overflow:hidden}
+.invest-head{display:flex; align-items:center; gap:8px; margin-bottom:12px}
+.invest-chart{position:relative; height:140px; border-radius:14px; background: rgba(91,154,139,.12); overflow:hidden; margin-bottom:12px; border:1px solid var(--border)}
+.chart-line{position:absolute; inset:22% 8% 20% 4%; border-radius:999px; background: linear-gradient(90deg, var(--grad1), var(--grad2), var(--grad3)); box-shadow:0 10px 30px rgba(91,154,139,.25)}
+.chart-glow{position:absolute; inset:30% 12% 6% 8%; border-radius:999px; background: radial-gradient(120px 60px at 70% 30%, rgba(232,184,109,.35), transparent 70%)}
+.pill-row{display:flex; gap:8px; align-items:center; flex-wrap:wrap}
+.pill.small{padding:6px 10px; font-size:12px; border:1px solid var(--border); background: rgba(255,251,245,.9)}
+.pill.small.active{background: rgba(91,154,139,.16); border-color: rgba(91,154,139,.35)}
+.invest-meta{display:flex; gap:8px; flex-wrap:wrap; margin-top:10px}
+.badge{display:inline-flex; align-items:center; gap:6px; padding:6px 10px; border-radius:999px; font-weight:800; font-size:12px; border:1px solid transparent}
+.badge.accent{background: rgba(91,154,139,.16); color: var(--accent-primary); border-color: rgba(91,154,139,.28)}
+.badge.success{background: rgba(136,171,142,.18); color: var(--accent-success); border-color: rgba(136,171,142,.26)}
+.badge.warning{background: rgba(232,184,109,.18); color: #5a4425; border-color: rgba(232,184,109,.30)}
+.goals-card{display:flex; flex-direction:column; gap:10px}
+.goals-badges{display:flex; gap:8px; flex-wrap:wrap}
+.ai-mock{display:flex; flex-direction:column; gap:12px}
+.chat{display:flex; flex-direction:column; gap:10px}
+.chat-row{display:flex; flex-direction:column; gap:4px}
+.chat-bubble{padding:12px 14px; border-radius:14px; max-width:100%; box-shadow:0 6px 18px rgba(45,36,36,.08); border:1px solid var(--border)}
+.chat-bubble.user{align-self:flex-end; background: linear-gradient(135deg, var(--grad1), var(--grad2), var(--grad3)); color: var(--surface1); border:none}
+.chat-bubble.bot{align-self:flex-start; background: var(--surface1); color: var(--ink)}
+.chat-bubble.thinking{color: var(--muted); font-style:italic}
+.chat-meta{color: var(--muted); font-size:12px}
+.suggested{display:flex; flex-direction:column; gap:8px}
+.ai-safe{margin-top:4px}
 
 .cta{padding:20px; display:flex; align-items:center; justify-content:space-between; gap:16px}
 .cta-actions{width:min(340px, 100%)}

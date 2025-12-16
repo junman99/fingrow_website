@@ -89,3 +89,47 @@ hamburger?.addEventListener("click", () => {
   hamburger.setAttribute("aria-expanded", String(!expanded));
   mobileNav.hidden = expanded;
 });
+
+// ===== Count-up on scroll =====
+const counters = Array.from(document.querySelectorAll("[data-target]"));
+const bars = Array.from(document.querySelectorAll(".bar-fill[data-fill]"));
+
+if ("IntersectionObserver" in window && (counters.length || bars.length)) {
+  const observer = new IntersectionObserver((entries, obs) => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      const el = entry.target;
+
+      if (el.hasAttribute("data-target")) {
+        const target = Number(el.getAttribute("data-target") || "0");
+        const prefix = el.getAttribute("data-prefix") || "";
+        const suffix = el.getAttribute("data-suffix") || "";
+        let start = null;
+        const duration = 1200;
+        const formatter = new Intl.NumberFormat("en-US");
+
+        const tick = (ts) => {
+          if (start === null) start = ts;
+          const progress = Math.min(1, (ts - start) / duration);
+          const eased = 1 - Math.pow(1 - progress, 3);
+          const value = Math.round(target * eased);
+          el.textContent = `${prefix}${formatter.format(value)}${suffix}`;
+          if (progress < 1) requestAnimationFrame(tick);
+        };
+
+        requestAnimationFrame(tick);
+        obs.unobserve(el);
+      } else if (el.classList.contains("bar-fill") && el.hasAttribute("data-fill")) {
+        const targetWidth = Number(el.getAttribute("data-fill") || "0");
+        el.style.transition = "width 1s ease";
+        requestAnimationFrame(() => {
+          el.style.width = `${targetWidth}%`;
+        });
+        obs.unobserve(el);
+      }
+    });
+  }, { threshold: 0.2 });
+
+  counters.forEach(el => observer.observe(el));
+  bars.forEach(el => observer.observe(el));
+}
