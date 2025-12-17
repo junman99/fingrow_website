@@ -94,9 +94,22 @@ if (yearEl) yearEl.textContent = String(new Date().getFullYear());
 
 // ===== Mobile menu =====
 const hamburger = document.getElementById("hamburger");
+const nav = document.querySelector(".nav");
+
 hamburger?.addEventListener("click", () => {
   const expanded = hamburger.getAttribute("aria-expanded") === "true";
   hamburger.setAttribute("aria-expanded", String(!expanded));
+  nav?.classList.toggle("nav-open");
+  hamburger.classList.toggle("is-active");
+});
+
+// Close mobile menu when clicking a nav link
+nav?.querySelectorAll("a").forEach(link => {
+  link.addEventListener("click", () => {
+    nav.classList.remove("nav-open");
+    hamburger?.classList.remove("is-active");
+    hamburger?.setAttribute("aria-expanded", "false");
+  });
 });
 
 // ═══════════════════════════════════════════════════════════════════════════
