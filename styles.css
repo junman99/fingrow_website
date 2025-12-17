@@ -1826,10 +1826,11 @@ input:focus {
     gap: 8px;
     box-shadow: var(--shadow-lg);
     border-bottom: 1px solid var(--border);
+    z-index: 1000;
   }
 
   .nav.nav-open {
-    display: flex;
+    display: flex !important;
   }
 
   .nav a {
@@ -1845,11 +1846,14 @@ input:focus {
   }
 
   .topbar {
-    position: relative;
+    position: sticky;
+    top: 0;
+    z-index: 100;
   }
 
   .topbar-inner {
     position: relative;
+    overflow: visible;
   }
 
   .topbar-cta {
@@ -2143,12 +2147,25 @@ input:focus {
     transform: none;
   }
 
+  .about-section .container {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
   .about-visual {
     width: 100%;
+    display: flex;
+    justify-content: center;
   }
 
   .about-card {
     max-width: 100%;
+    width: 100%;
+  }
+
+  .about-stat {
+    flex-direction: row;
+    width: 100%;
   }
 
   .point-icon {
