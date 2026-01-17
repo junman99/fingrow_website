@@ -1,5 +1,5 @@
 /* ═══════════════════════════════════════════════════════════════════════════
-   FINGROW WEBSITE — Design System v3.0
+   MONIFY AI WEBSITE — Design System v3.0
    Integrated app screenshots with immersive section design
    ═══════════════════════════════════════════════════════════════════════════ */
 
@@ -2288,9 +2288,7 @@ input:focus {
    ABOUT SECTION
    ═══════════════════════════════════════════════════════════════════════════ */
 
-.about-section {
-  background: var(--bg);
-}
+/* .about-section inherits background from .section and .feature-section */
 
 .about-grid {
   display: grid;

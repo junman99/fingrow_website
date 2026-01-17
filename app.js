@@ -1,5 +1,5 @@
 // ═══════════════════════════════════════════════════════════════════════════
-// FINGROW Website JavaScript v3.0
+// MONIFY AI Website JavaScript v3.0
 // Immersive interactions and premium animations
 // ═══════════════════════════════════════════════════════════════════════════
 
@@ -75,9 +75,9 @@ form?.addEventListener("submit", async (e) => {
 
   } catch (err) {
     // Fallback: store locally for demo
-    const existing = JSON.parse(localStorage.getItem('fingrow_waitlist') || '[]');
+    const existing = JSON.parse(localStorage.getItem('monify_ai_waitlist') || '[]');
     existing.push({ ...payload, timestamp: Date.now() });
-    localStorage.setItem('fingrow_waitlist', JSON.stringify(existing));
+    localStorage.setItem('monify_ai_waitlist', JSON.stringify(existing));
 
     form.reset();
     toast.hidden = false;
@@ -612,12 +612,12 @@ if (window.matchMedia('(hover: hover)').matches) {
 // ═══════════════════════════════════════════════════════════════════════════
 
 console.log(
-  '%c🌱 FINGROW %c— AI-powered personal finance',
+  '%c🌱 MONIFY AI %c— AI-powered personal finance',
   'font-size: 24px; font-weight: 800; color: #5B9A8B;',
   'font-size: 16px; font-weight: 500; color: #7A6F6F;'
 );
 console.log(
-  '%cInterested in joining our team? Email us at hello@fingrow.app',
+  '%cInterested in joining our team? Email us at hello@monify.ai',
   'font-size: 12px; color: #7A6F6F;'
 );
 
